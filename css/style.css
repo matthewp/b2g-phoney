@@ -241,7 +241,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	width: 100%;
 	height: 95px;
 	/*border: 1px solid #555;*/
-	font: 14px Arial;
+	font: 24px Arial;
 	color: white;
 
 	/* flexbox setup */
@@ -270,4 +270,30 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 .box > div:hover {
 	background: #F0B446;
+}
+
+#main {
+	overflow: hidden;
+	position: relative;
+}
+
+#main, #dialer, #incall {
+	height: 500px;
+}
+
+#slide_divs {
+	position: absolute;
+	height: 1000px;
+	width: 100%;
+	top: 0px;
+	-webkit-transition: all 0.8s ease-in-out;
+	-moz-transition: all 0.8s ease-in-out;
+	-o-transition: all 0.8s ease-in-out;
+	-ms-transition: all 0.8s ease-in-out;	
+	-transition: all 0.8s ease-in-out;
+}
+
+#dialer, #incall {
+	padding: 0;
+	margin: 0;
 }

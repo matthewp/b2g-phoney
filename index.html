@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title></title>
+  <title>Dialer</title>
   <meta name="description" content="">
   <meta name="author" content="">
   
@@ -48,28 +48,38 @@
   <div id="container">
   
     <div id="main" role="main">
-		<div class="box">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-		</div>
-		<div class="box">
-			<div>4</div>
-			<div>5</div>
-			<div>6</div>
-		</div>
-		<div class="box">
-			<div>7</div>
-			<div>8</div>
-			<div>9</div>
-		</div>
-		<div class="box">
-			<div>*</div>
-			<div>0</div>
-			<div>#</div>
-		</div>
-		<div class="box">
-			<div>dial</div>
+		<div id="slide_divs">
+			<div id="dialer">
+				<div class="box number">
+					<span id="number">555-555-5555</span>
+				</div>
+				<div class="box">
+					<div><span class="box-text">1</span></div>
+					<div><span class="box-text">2</span></div>
+					<div><span class="box-text">3</span></div>
+				</div>
+				<div class="box">
+					<div><span class="box-text">4</span></div>
+					<div><span class="box-text">5</span></div>
+					<div><span class="box-text">6</span></div>
+				</div>
+				<div class="box">
+					<div><span class="box-text">7</span></div>
+					<div><span class="box-text">8</span></div>
+					<div><span class="box-text">9</span></div>
+				</div>
+				<div class="box">
+					<div><span class="box-text">*</span></div>
+					<div><span class="box-text">0</span></div>
+					<div><span class="box-text">#</span></div>
+				</div>
+				<div class="box">
+					<div id="call">dial</div>
+				</div>
+			</div>
+			<div id="incall">
+				<span>We're in a call</span>
+			</div>
 		</div>
     </div>
     
@@ -99,6 +109,8 @@
       nope : ['js/libs/respond.min.js']
     });
   </script>
+  
+  <script src="js/script.js"></script>
   
   <!-- Debugger - remove for production -->
   <!-- <script src="https://getfirebug.com/firebug-lite.js"></script> -->
