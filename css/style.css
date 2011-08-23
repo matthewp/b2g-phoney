@@ -264,10 +264,10 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 /* our colors */
 .box > div {
-	background: black;
+	background: #151A23;
 }
 
-.box > div:checked {
+.box > div.selected {
 	background: #F0B446;
 }
 
@@ -290,4 +290,22 @@ only screen and (min-device-pixel-ratio: 1.5) {
 #dialer, #incall {
 	padding: 0;
 	margin: 0;
+}
+
+#incall {
+	background: url(/img/noun_project_316_1.svg) no-repeat center;
+	background-color: #151A23;
+	background-size: 210px 210px;
+}
+
+.in-num {
+	height: 150px;
+	/*background: blue; */
+}
+
+#hangup {
+	height: 200px;
+	background: red;
+	width: 85%;
+	margin: auto;
 }
