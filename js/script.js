@@ -1,11 +1,34 @@
 (function() {
-var Screen, slide, init, wheight, setNumber;
+var Screen, slide, init, wheight, setNumber, isEventSupported;
 Screen = {
 	INCALL: 0,
 	DIALER: 1
 };
 
+isEventSupported = (function(){
+    var TAGNAMES = {
+      'select':'input','change':'input',
+      'submit':'form','reset':'form',
+      'error':'img','load':'img','abort':'img'
+    }
+    function isEventSupported(eventName) {
+      var el = document.createElement(TAGNAMES[eventName] || 'div');
+      eventName = 'on' + eventName;
+      var isSupported = (eventName in el);
+      if (!isSupported) {
+        el.setAttribute(eventName, 'return;');
+        isSupported = typeof el[eventName] == 'function';
+      }
+      el = null;
+      return isSupported;
+    }
+    return isEventSupported;
+  })();
+
 init = function() {
+	// Remove browser chrome
+	window.scrollTo(0,1);
+
 	wheight = $(window).height();
 	$("#main, #dialer, #incall").height(wheight);
 	$("#slide_divs").height(wheight * 2);
@@ -66,21 +89,16 @@ $(document).ready(function() {
 
 	init();
 
-	$("#call").click(function() {
+	actEvt = isEventSupported('touchend') ? "touchend" : "click";
+	$("#call").bind(actEvt, function() {
 		slide(Screen.INCALL);
 	});
 	
-	actEvt = 'touchmove' in document.documentElement ? "touchend" : "click";
 	$(".digit > div").bind(actEvt, function() {
 		setNumber($(this).text());
 	});
 	
-	$("#hangup").click(function() {
-		// TODO hang up the phone.
-		slide(Screen.DIALER);
-	});
-	
-	$("#hangup").bind("touchend", function() {
+	$("#hangup").bind(actEvt, function() {
 		slide(Screen.DIALER);
 	});
 });
