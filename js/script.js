@@ -11,13 +11,16 @@ init = function() {
 	$("#slide_divs").height(wheight * 2);
 	$("#dialer > .box").height(wheight / 6);
 	
-	$(".digit > div, #call").each(function() {
+	$(".in-num").height(wheight * 0.2);
+	$("#hangup").height(wheight * 0.15);
+	
+	$(".digit > div, #call, #hangup").each(function() {
 		$(this).bind("touchstart", function() {
 			$(this).addClass("selected");
 		});
 	});
 	
-	$(".digit > div, #call").each(function() {
+	$(".digit > div, #call, #hangup").each(function() {
 		$(this).bind("touchend", function() {
 			$(this).removeClass("selected");
 		});
@@ -59,18 +62,26 @@ setNumber = function(num) {
 };
 
 $(document).ready(function() {
+	var actEvt;
+
 	init();
 
 	$("#call").click(function() {
 		slide(Screen.INCALL);
 	});
 	
-	$(".digit > div").click(function() {
+	actEvt = 'touchmove' in document.documentElement ? "touchend" : "click";
+	$(".digit > div").bind(actEvt, function() {
 		setNumber($(this).text());
 	});
 	
 	$("#hangup").click(function() {
 		// TODO hang up the phone.
-	}
+		slide(Screen.DIALER);
+	});
+	
+	$("#hangup").bind("touchend", function() {
+		slide(Screen.DIALER);
+	});
 });
 }).call(this);

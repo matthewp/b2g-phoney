@@ -9,6 +9,7 @@
  * - camendesign.com/design/
  * - praegnanz.de/weblog/htmlcssjs-kickstart
  */
+ @import url(http://fonts.googleapis.com/css?family=Nova+Square);
 
 
 /**
@@ -236,11 +237,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 /* My stuff */
+body {
+	font-family: 'Nova Square', cursive;
+}
+
 .box {
 	/* basic styling */
 	width: 100%;
 	/*border: 1px solid #555;*/
-	font: 24px Arial;
+	font-size: 24px;
 	color: white;
 
 	/* flexbox setup */
@@ -267,8 +272,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
 	background: #151A23;
 }
 
-.box > div.selected {
-	background: #F0B446;
+.selected {
+	background: #F0B446 !important;
 }
 
 #main {
@@ -304,8 +309,17 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 
 #hangup {
+	position: relative;
 	height: 200px;
 	background: red;
 	width: 85%;
 	margin: auto;
+	text-align: center;
+}
+
+#hangup > span {
+	color: white;
+	height: 50px;
+	margin: auto;
+	font-size: 36px;
 }
