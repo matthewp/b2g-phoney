@@ -256,15 +256,16 @@ body {
 	-moz-box-orient: horizontal;
 
 	display: box;
-	box-orient: horizontal;
+	box-orient: horizontal;	
 }
 
 .box > div {
 	-webkit-box-flex: 1;
 	-moz-box-flex: 1;
 	box-flex: 1;
-	
+	width: 25px;
 	margin: 1px;
+	text-align: center;
 }
 
 /* our colors */
@@ -274,6 +275,10 @@ body {
 
 .selected {
 	background: #F0B446 !important;
+}
+
+.box-text {
+	font-size: 50px;
 }
 
 #main {
@@ -292,6 +297,24 @@ body {
 	-transition: all 0.6s ease-in-out;
 }
 
+.number-edit {
+	width: 90%;
+	margin: auto;
+	font-size: 25px;
+	position: relative;
+	height: 25px;
+}
+
+.number {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.number, .bksp {
+	position: absolute;
+}
+
 #dialer, #incall {
 	padding: 0;
 	margin: 0;
@@ -305,7 +328,6 @@ body {
 
 .in-num {
 	height: 150px;
-	/*background: blue; */
 }
 
 #hangup {
@@ -321,5 +343,5 @@ body {
 	color: white;
 	height: 50px;
 	margin: auto;
-	font-size: 36px;
+	font-size: 50px;
 }

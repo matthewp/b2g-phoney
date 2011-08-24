@@ -2,7 +2,7 @@
 <!-- Conditional comment for mobile ie7 http://blogs.msdn.com/b/iemobile/ -->
 <!-- Appcache Facts http://appcachefacts.info/ -->
 <!--[if IEMobile 7 ]>    <html class="no-js iem7" manifest="default.appcache?v=1"> <![endif]-->
-<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" manifest="default.appcache?v=2"> <!--<![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" manifest="default.appcache?v=3"> <!--<![endif]-->
 
 <head>
   <meta charset="utf-8">
@@ -50,8 +50,13 @@
     <div id="main" role="main">
 		<div id="slide_divs">
 			<div id="dialer">
-				<div class="box number">
-					<div><span id="number">&nbsp;</span></div>
+				<div class="box">
+					<div>
+						<div class="number-edit">
+							<div class="number"><span id="number">&nbsp;</span></div>
+							<div class="bksp"></div>
+						</div>
+					</div>
 				</div>
 				<div class="box digit">
 					<div><span class="box-text">1</span></div>
@@ -74,7 +79,7 @@
 					<div><span class="box-text">#</span></div>
 				</div>
 				<div class="box">
-					<div id="call">dial</div>
+					<div id="call" class="box-text">call</div>
 				</div>
 			</div>
 			<div id="incall">

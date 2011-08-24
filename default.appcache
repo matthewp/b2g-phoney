@@ -1,16 +1,16 @@
 CACHE MANIFEST
-# version 2
+# version 3
 img/l/apple-touch-icon.png
 img/l/apple-touch-icon-precomposed.png
 img/l/splash.png
 img/m/apple-touch-icon.png
 img/h/apple-touch-icon.png
 img/h/splash.png
-css/style.css
+# css/style.css
 js/libs/jquery-1.5.1.min.js
 js/libs/modernizr-custom.js
 js/libs/respond.min.js
-js/script.js
+# js/script.js
 
 NETWORK:
 #http://example.com/api/

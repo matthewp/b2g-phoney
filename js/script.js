@@ -26,13 +26,17 @@ isEventSupported = (function(){
   })();
 
 init = function() {
+	var dialerRow;
+
 	// Remove browser chrome
 	window.scrollTo(0,1);
 
 	wheight = $(window).height();
+	dialerRow = wheight / 6;
 	$("#main, #dialer, #incall").height(wheight);
 	$("#slide_divs").height(wheight * 2);
-	$("#dialer > .box").height(wheight / 6);
+	$("#dialer > .box").height(dialerRow);
+	$(".box-text").css("line-height", (dialerRow - 2) + "px");
 	
 	$(".in-num").height(wheight * 0.2);
 	$("#hangup").height(wheight * 0.15);
