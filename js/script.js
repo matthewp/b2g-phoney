@@ -1,5 +1,5 @@
 (function() {
-var Screen, slide, init, wheight, setNumber, isEventSupported;
+var Screen, slide, init, wheight, setNumber, isEventSupported, validateInstall;
 Screen = {
 	INCALL: 0,
 	DIALER: 1
@@ -23,10 +23,26 @@ isEventSupported = (function(){
       return isSupported;
     }
     return isEventSupported;
-  })();
+})();
+
+validateInstall = function() {
+    console.log(location.hash);
+    if(location.hash === "#test") {
+        if(navigator.apps) {
+            navigator.apps.amInstalled(function(d) {
+                if(!d) {
+                    window.location = "install.html";
+                }
+            });
+        }
+    }
+};
 
 init = function() {
 	var dialerRow;
+	
+	// Prompt the user to install this app, if they haven't already done so.
+	validateInstall();
 
 	// Remove browser chrome
 	window.scrollTo(0,1);
@@ -52,7 +68,7 @@ init = function() {
 			$(this).removeClass("selected");
 		});
 	});
-}
+};
 
 slide = function(d) {
 	var px, h;
