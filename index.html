@@ -49,43 +49,132 @@
   
     <div id="main" role="main">
 		<div id="slide_divs">
-			<div id="dialer">
-				<div class="box">
-					<div>
-						<div class="number-edit">
-							<div class="number"><span id="number">&nbsp;</span></div>
-							<div class="bksp"></div>
+			<div class="row">
+				<div id="dialer" class="section">
+					<div class="box">
+						<div>
+							<div class="number-edit">
+								<div class="number"><span id="number">&nbsp;</span></div>
+								<div class="bksp"></div>
+							</div>
 						</div>
 					</div>
+					<div class="box digit">
+						<div><span class="box-text">1</span></div>
+						<div><span class="box-text">2</span></div>
+						<div><span class="box-text">3</span></div>
+					</div>
+					<div class="box digit">
+						<div><span class="box-text">4</span></div>
+						<div><span class="box-text">5</span></div>
+						<div><span class="box-text">6</span></div>
+					</div>
+					<div class="box digit">
+						<div><span class="box-text">7</span></div>
+						<div><span class="box-text">8</span></div>
+						<div id="nine"><span class="box-text">9</span></div>
+					</div>
+					<div class="box digit">
+						<div><span class="box-text">*</span></div>
+						<div><span class="box-text">0</span></div>
+						<div><span class="box-text">#</span></div>
+					</div>
+					<div class="box">
+						<div id="call" class="box-text">call</div>
+					</div>
 				</div>
-				<div class="box digit">
-					<div><span class="box-text">1</span></div>
-					<div><span class="box-text">2</span></div>
-					<div><span class="box-text">3</span></div>
-				</div>
-				<div class="box digit">
-					<div><span class="box-text">4</span></div>
-					<div><span class="box-text">5</span></div>
-					<div><span class="box-text">6</span></div>
-				</div>
-				<div class="box digit">
-					<div><span class="box-text">7</span></div>
-					<div><span class="box-text">8</span></div>
-					<div><span class="box-text">9</span></div>
-				</div>
-				<div class="box digit">
-					<div><span class="box-text">*</span></div>
-					<div><span class="box-text">0</span></div>
-					<div><span class="box-text">#</span></div>
-				</div>
-				<div class="box">
-					<div id="call" class="box-text">call</div>
+				<div id="contacts" class="section">
+					<p>Contacts</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<p>1</p>
+					<a href="#" id="back">Back</a>
 				</div>
 			</div>
-			<div id="incall">
-				<div id="in-num" class="in-num"></div>
-				<div id="hangup">
-					<span>hang-up</span>
+			<div class="row">
+				<div id="incall" class="section">
+					<div id="in-num" class="in-num"></div>
+					<div id="hangup">
+						<span>hang-up</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -103,7 +192,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
   <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
   
-  <! -- Grab Mozilla's Open Web Apps API from CDN. TODO local fallback -->
+  <!-- Grab Mozilla's Open Web Apps API from CDN. TODO local fallback -->
   <script src="js/mylibs/apps-include.min.js"></script>
   
   <!-- scripts concatenated and minified via ant build script -->

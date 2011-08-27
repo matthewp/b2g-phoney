@@ -1,8 +1,9 @@
 (function() {
-var Screen, slide, init, wheight, setNumber, isEventSupported, validateInstall;
+var Screen, slide, init, wheight, wwidth, setNumber, isEventSupported, validateInstall;
 Screen = {
 	INCALL: 0,
-	DIALER: 1
+	DIALER: 1,
+	CONTACTS: 2
 };
 
 isEventSupported = (function(){
@@ -48,6 +49,11 @@ init = function() {
 	window.scrollTo(0,1);
 
 	wheight = $(window).height();
+	wwidth = $(window).width();
+	
+	$(".row").width(wwidth * 2);
+	$(".section").width(wwidth);
+	
 	dialerRow = wheight / 6;
 	$("#main, #dialer, #incall").height(wheight);
 	$("#slide_divs").height(wheight * 2);
@@ -71,25 +77,32 @@ init = function() {
 };
 
 slide = function(d) {
-	var px, h;
+	var wpx, hpx, h;
+	
+	wpx = "0px";
+	hpx = "0px";
 	
 	switch(d) {
 		case Screen.INCALL:
-			px = "-" + wheight + "px";
+			hpx = "-" + wheight + "px";
 			break;
 		case Screen.DIALER:
-			px = "0px";
+			hpx = "0px";
+			break;
+		case Screen.CONTACTS:
+			wpx = "-" + wwidth + "px";
 			break;
 		default:
 			console.log("Cannot slide to: " + d);
-			px = "0px";
+			wpx = "0px";
+			hpx = "0px";
 			break;
 	}
 	
-	$("#slide_divs").css("-moz-transform","translate(0px, " + px + ")");
-	$("#slide_divs").css("-webkit-transform","translate(0px, " + px + ")");
-	$("#slide_divs").css("-o-transform","translate(0px, " + px + ")");
-	$("#slide_divs").css("transform","translate(0px, " + px + ")");
+	$("#slide_divs").css("-moz-transform","translate(" + wpx + ", " + hpx + ")");
+	$("#slide_divs").css("-webkit-transform","translate(" + wpx + ", " + hpx + ")");
+	$("#slide_divs").css("-o-transform","translate(" + wpx + ", " + hpx + ")");
+	$("#slide_divs").css("transform","translate(" + wpx + ", " + hpx + ")");
 };
 
 setNumber = function(num) {
@@ -112,6 +125,14 @@ $(document).ready(function() {
 	actEvt = isEventSupported('touchend') ? "touchend" : "click";
 	$("#call").bind(actEvt, function() {
 		slide(Screen.INCALL);
+	});
+	
+	$("#nine").bind(actEvt, function() {
+		slide(Screen.CONTACTS);
+	});
+	
+	$("#back").bind(actEvt, function(e) {
+		slide(Screen.DIALER);
 	});
 	
 	$(".digit > div").bind(actEvt, function() {
