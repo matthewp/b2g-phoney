@@ -271,7 +271,6 @@ body {
 	-webkit-box-flex: 1;
 	-moz-box-flex: 1;
 	box-flex: 1;
-	width: 25px;
 	margin: 1px;
 	text-align: center;
 }
@@ -307,9 +306,7 @@ body {
 .number-edit {
 	width: 90%;
 	margin: auto;
-	font-size: 25px;
 	position: relative;
-	height: 25px;
 }
 
 .number {
@@ -343,6 +340,7 @@ body {
 	background: red;
 	width: 85%;
 	margin: auto;
+	margin-top: 20px;
 	text-align: center;
 }
 
@@ -350,5 +348,5 @@ body {
 	color: white;
 	height: 50px;
 	margin: auto;
-	font-size: 50px;
+	font-size: 45px;
 }

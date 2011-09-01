@@ -40,7 +40,7 @@ validateInstall = function() {
 };
 
 init = function() {
-	var dialerRow;
+	var dialerRow, editMaxSpace, editSpace, editBox;
 	
 	// Prompt the user to install this app, if they haven't already done so.
 	validateInstall();
@@ -58,10 +58,22 @@ init = function() {
 	$("#main, #dialer, #incall").height(wheight);
 	$("#slide_divs").height(wheight * 2);
 	$("#dialer > .box").height(dialerRow);
+	$("#dialer > .box > div").width($("#dialer > .box").width());
 	$(".box-text").css("line-height", (dialerRow - 2) + "px");
 	
+	// Begin number input area
+	editMaxSpace = $("#dialer > .box:first-child").height();
+	editSpace = editMaxSpace * 0.70;
+	editBox = $(".number-edit");
+	editBox.height(editSpace);
+	editBox.css("margin-top", (editMaxSpace - editSpace) / 2 + "px");
+	$("#number").css("font-size", editSpace * 0.70 + "px")
+	// End number input area
+	
+	// Begin in-call area
 	$(".in-num").height(wheight * 0.2);
 	$("#hangup").height(wheight * 0.15);
+	// End in-call area
 	
 	$(".digit > div, #call, #hangup").each(function() {
 		$(this).bind("touchstart", function() {
@@ -125,10 +137,6 @@ $(document).ready(function() {
 	actEvt = isEventSupported('touchend') ? "touchend" : "click";
 	$("#call").bind(actEvt, function() {
 		slide(Screen.INCALL);
-	});
-	
-	$("#nine").bind(actEvt, function() {
-		slide(Screen.CONTACTS);
 	});
 	
 	$("#back").bind(actEvt, function(e) {

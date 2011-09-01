@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "name": "Dialer",
+  "description": "Telephone dialer and contact manager.",
+  "icons": {
+    "16": "/img/icon-16.png",
+    "48": "/img/icon-48.png",
+    "128": "/img/icon-128.png"
+  },
+  "widget": {
+    "path": "/widget.html",
+    "width": 100,
+    "height": 200
+  },
+  "developer": {
+    "name": "Matthew Phillips",
+    "url": "http://phillipsoft.biz"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en"
+}
