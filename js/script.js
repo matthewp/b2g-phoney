@@ -1,9 +1,39 @@
 (function() {
-var Screen, slide, init, wheight, wwidth, setNumber, isEventSupported, validateInstall;
+var Screen, slide, init, wheight, wwidth, setNumber, isEventSupported, validateInstall, Number;
 Screen = {
 	INCALL: 0,
 	DIALER: 1,
 	CONTACTS: 2
+};
+
+Number = Number || {};
+Number.num = "";
+Number.add = function(n) {
+	Number.num += n;
+	Number.format();
+};
+
+Number.del = function() {
+	var n;
+	n = Number.num;
+	Number.num = n.substring(0, n.length - 2);
+	Number.format();
+};
+
+Number.format = function() {
+	var n, len, txt;
+	n = Number.num;
+	len = n.length;
+	
+	if(len <= 5) {
+		txt = n;
+	} else if(len > 5 && len < 8) {
+		txt = n.substring(0, 3) + "-" + n.substring(3);
+	} else if(len >= 8) {
+		txt = "(" + n.substring(0, 3) + ") " + n.substring(3, 6) + "-" + n.substring(6);
+	}
+	
+	$("#number").text(txt);
 };
 
 isEventSupported = (function(){
@@ -117,18 +147,6 @@ slide = function(d) {
 	$("#slide_divs").css("transform","translate(" + wpx + ", " + hpx + ")");
 };
 
-setNumber = function(num) {
-	var txt = $.trim($("#number").text());
-	
-	if(txt.length === 3) {
-		txt += "-";
-	} else if(txt.length === 7) {
-		txt = "(" + txt.replace("-", ") ") + "-";
-	}
-	
-	$("#number").text(txt + num);
-};
-
 $(document).ready(function() {
 	var actEvt;
 
@@ -144,7 +162,7 @@ $(document).ready(function() {
 	});
 	
 	$(".digit > div").bind(actEvt, function() {
-		setNumber($(this).text());
+		Number.add($(this).text());
 	});
 	
 	$("#hangup").bind(actEvt, function() {
