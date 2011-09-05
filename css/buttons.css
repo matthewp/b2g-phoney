@@ -1,0 +1,20 @@
+.button {
+	display: block;
+	white-space: nowrap;
+	text-decoration: none;
+	background: red;
+	margin: auto;
+	margin-top: 20px;
+	padding: 12px 0px 12px 0px;
+	width: 85%;
+	color: white;
+	text-align: center;
+}
+
+.button:active, .button:visited {
+	color: white;
+}
+
+.hangup {
+	font-size: 45px;
+}

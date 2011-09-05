@@ -100,18 +100,13 @@ init = function() {
 	$("#number").css("font-size", editSpace * 0.70 + "px")
 	// End number input area
 	
-	// Begin in-call area
-	$(".in-num").height(wheight * 0.2);
-	$("#hangup").height(wheight * 0.15);
-	// End in-call area
-	
-	$(".digit > div, #call, #hangup").each(function() {
+	$(".digit > div, #call, .hangup").each(function() {
 		$(this).bind("touchstart", function() {
 			$(this).addClass("selected");
 		});
 	});
 	
-	$(".digit > div, #call, #hangup").each(function() {
+	$(".digit > div, #call, .hangup").each(function() {
 		$(this).bind("touchend", function() {
 			$(this).removeClass("selected");
 		});
@@ -165,8 +160,8 @@ $(document).ready(function() {
 		Number.add($(this).text());
 	});
 	
-	$("#hangup").bind(actEvt, function() {
+	$("#hangup").bind(actEvt, function(e) {
 		slide(Screen.DIALER);
 	});
 });
-}).call(this);
+}).call(this)

@@ -10,7 +10,7 @@
  * - praegnanz.de/weblog/htmlcssjs-kickstart
  */
  @import url(http://fonts.googleapis.com/css?family=Nova+Square);
-
+ @import url('buttons.css');
 
 /**
  * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
@@ -267,7 +267,8 @@ body {
 	box-orient: horizontal;	
 }
 
-.box > div {
+.box > div, .box > span {
+	display: block;
 	-webkit-box-flex: 1;
 	-moz-box-flex: 1;
 	box-flex: 1;
@@ -336,21 +337,4 @@ body {
 
 .in-num {
 	height: 150px;
-}
-
-#hangup {
-	position: relative;
-	height: 200px;
-	background: red;
-	width: 85%;
-	margin: auto;
-	margin-top: 20px;
-	text-align: center;
-}
-
-#hangup > span {
-	color: white;
-	height: 50px;
-	margin: auto;
-	font-size: 45px;
 }
