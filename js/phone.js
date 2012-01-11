@@ -1,24 +1,24 @@
 (function() {
-var EventHandler, init, wheight, wwidth, setNumber, isEventSupported, validateInstall, Number;
+var EventHandler, init, wheight, wwidth, setNumber, isEventSupported, validateInstall, TeleNumber;
 
-Number = {
+TeleNumber = {
 	num: "",
 
-	add: function(n) {
-		Number.num += n;
-		Number.format();
-	},
+	add: (function(n) {
+		this.num += n;
+		this.format();
+	}).bind(this),
 
-	del: function() {
+	del: (function() {
 		var n;
-		n = Number.num;
-		Number.num = n.substring(0, n.length - 2);
-		Number.format();
-	},
+		n = this.num;
+		this.num = n.substring(0, n.length - 2);
+		this.format();
+	}).bind(this),
 
-	format: function() {
+	format: (function() {
 		var n, len, txt;
-		n = Number.num;
+		n = this.num;
 		len = n.length;
 		
 		if(len <= 5) {
@@ -29,14 +29,15 @@ Number = {
 			txt = "(" + n.substring(0, 3) + ") " + n.substring(3, 6) + "-" + n.substring(6);
 		}
 		
-		Numer._elem.innertText(txt);
-	},
+		this._elem.innertText(txt);
+	}).bind(this),
 
-	init: function() {
-		Number._elem = document.getElementById('number');
-	}
+	init: (function() {
+		this._elem = document.getElementById('number');
+	}).bind(this)
 };
 
+// This code is evil. I am ashamed of setting style in JavaScript like this, it will be removed!
 var App = {
 	init: function() {
 		var dialerRow, editMaxSpace, editSpace, editBox;
@@ -83,21 +84,34 @@ var App = {
 	}
 };
 
+// A key represents a pressable button in the dialer.
+function Key(elem) {
+	this._key = elem.innerText;
+
+	['click', 'touchend'].forEach(function(evt) {
+		elem.addEventListener(evt, this, true);
+	});
+}
+
+Key.prototype = {
+	handleEvent: function handleEvent(e) {
+		TeleNumber.add(this._key);
+	}
+};
+
+// Handles the dialer screen.
+// TODO Add event for call click.
 var Dialer = {
 	handleEvent: function handleEvent(e) {
 
 	},	
 
-	init: function() {
-		this.dialer = document.getElementById('dialer');
-
-		var events = ('touchend' in window) ?
-			['touchstart', 'touchend'] : ['mousedown', 'click'];
-
-		events.forEach(function(evt) {
-			this.dialer.addEventListener(evt, this, true);
+	init: (function() {
+		var elems = Array.prototype.slice.call(document.querySelectorAll(".digit > .box-text"));
+		elems.forEach(function(elem) {
+			new Key(elem);
 		});
-	}
+	}).bind(this)
 };
 
 window.addEventListener('load', function appLoad(e) {
