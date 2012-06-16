@@ -59,13 +59,15 @@ isEventSupported = (function(){
 validateInstall = function() {
     console.log(location.hash);
     if(location.hash === "#test") {
-        if(navigator.apps) {
-            navigator.apps.amInstalled(function(d) {
-                if(!d) {
-                    window.location = "install.html";
-                }
-            });
+      return;
+    }
+
+    if(navigator.apps) {
+      navigator.apps.amInstalled(function(d) {
+        if(!d) {
+          window.location = "install.html";
         }
+      });
     }
 };
 
