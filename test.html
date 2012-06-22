@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Dialer</title>
+        <link href="style/phoney.css" rel="stylesheet" type="text/css" />
+      <link href="src/css/x-callingnumber.css" rel="stylesheet" type="text/css" />
+        <link href="src/css/x-keypad.css" rel="stylesheet" type="text/css" />
+        <script src="libs/x-tag/x-tag.js"></script>
+        <script src="src/js/x-callingnumber.js"></script>
+        <script src="src/js/x-keypad.js"></script>
+    </head>
+    <body>
+      <div class="views">
+        <div class="view dialpad">
+          <x-callingnumber class="row" data-number="5554446666"></x-callingnumber>
+          <x-keypad>
+            <div class="row">
+              <x-key class="span1" data-value="1">1</x-key>
+              <x-key class="span1" data-value="2">2</x-key>
+              <x-key class="span1" data-value="3">3</x-key>
+            </div>
+            <div class="row">
+              <x-key class="span1" data-value="4">4</x-key>
+              <x-key class="span1" data-value="5">5</x-key>
+              <x-key class="span1" data-value="6">6</x-key>
+            </div>
+            <div class="row">
+              <x-key class="span1" data-value="7">7</x-key>
+              <x-key class="span1" data-value="8">8</x-key>
+              <x-key class="span1" data-value="9">9</x-key>
+            </div>
+            <div class="row">
+              <x-key class="span1" data-value="*">*</x-key>
+              <x-key class="span1" data-value="0">0</x-key>
+              <x-key class="span1" data-value="#">#</x-key>
+            </div>
+          </x-keypad>
+          <div class="row call-button">call</div>
+        </div>
+      </div>
+      <script defer>
+        var cn = document.getElementsByTagName('x-callingnumber')[0];
+        var kp = document.getElementsByTagName('x-keypad')[0];
+
+        kp.addEventListener('tap', function(e) {
+          var val = e.detail.value;
+
+          cn.xtag.add(val);
+        }, false);
+
+        document.getElementsByClassName('call-button')[0].addEventListener('ontouchend' in document ? 'touchend' : 'mouseup', function() {
+
+          console.log('We\'re now in a call!.');
+
+        }, false);
+      </script>
+    </body>
+</html>
